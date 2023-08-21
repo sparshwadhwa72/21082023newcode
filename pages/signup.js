@@ -5,13 +5,232 @@ import {
   Typography,
   Container,
   Grid,
+  FormControlLabel,
+  Checkbox,
 } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+ import '@fontsource/roboto';
 
- import DateInput from '@components/forms/form-components/date-picker/Signup-dob';
- import useStyles from './Login/Signup-Styles';
-import TextInput from './form-components/text-input/text-input';
+import { Visibility, VisibilityOff } from '@material-ui/icons'; 
+
+import TextInput from '@components/forms/form-components/text-input/text-input';
 
 const SignupPage = () => {
+
+  const width = '100%'
+
+
+  const useStyles = makeStyles({
+ 
+      titleText: {        
+          fontFamily: "'Roboto'",
+          fontStyle: "normal",
+          fontWeight: 700,
+          fontSize: "24px",
+          textAlign: "center",
+          color: "#216194",
+                marginTop: 200,
+            },
+            textField: {
+                width: '416px',
+                height: '80px',
+              margin: '32px 0 0 0',
+            },
+            textFieldsignup: {
+              minWidth: '640px',
+              height: '80px',
+              margin: '32px 0px 0px  0px',
+              background: "#FFFFFF",
+      boxShadow: "0px 15px 30px rgba(33, 97, 148, 0.1)",
+      borderRadius: "16px",
+      marginTop: 32,            
+      // Responsive width
+      '@media (max-width: 600px)': {
+        minWidth: '100%', // Set to 100% width for screens smaller than 600px
+      },
+             
+          },
+      Inputnew:{
+          fontFamily: "'Roboto'",
+    fontStyle: "normal",
+    fontWeight: 400,
+    fontSize: "16px",
+   
+   color: '#216194',
+   padding: '31px 0px 0px 20px',
+   '&::placeholder': {
+     opacity: 1,
+   color: "#BAB9B9",
+ },
+     },
+     
+     Inputnew1:{
+       fontFamily: "'Roboto'",
+ fontStyle: "normal",
+ fontWeight: 400,
+ fontSize: "16px",
+ 
+ color: '#216194',
+ padding: '18px 0px 0px 0px',
+ '&::placeholder': {
+   opacity: 1,
+ color: "#BAB9B9",
+ },
+   },
+           
+     textFieldInput: {
+       margin: '38px 0 16px 0',
+       '&::placeholder': {
+           fontFamily: 'Roboto',
+           fontSize: '16px',
+           color: '#bab9b9',
+           opacity: '1',
+       },
+       color: '#216194',
+   },
+           
+     textFieldLabel: {
+       margin: '16px 0px 0px 20px',      
+   fontFamily: "'Roboto'",
+   fontStyle: "normal",
+   fontWeight: 700,
+   fontSize: "18px",
+   color: "#216194",
+   
+   transform: 'none',
+   transition: 'none',
+   '&.Mui-focused': {
+       color: '#216194',
+   },
+   },
+   
+   Firstname: {
+     minWidth: '304px',
+     height: '80px',
+     background: "#FFFFFF",
+     boxShadow: "0px 15px 30px rgba(33, 97, 148, 0.1)",
+     borderRadius: "16px",
+     marginTop: 32,            
+     // Responsive width
+     '@media (max-width: 600px)': {
+       minWidth: '100%', // Set to 100% width for screens smaller than 600px
+     },
+   },
+ 
+           
+         Lastname:{
+             minWidth: '304px',
+             height: '80px',
+   background: "#FFFFFF",
+   boxShadow: "0px 15px 30px rgba(33, 97, 148, 0.1)",
+   borderRadius: "16px",
+   margin: '32px 0px 0px 52px',
+   '@media (max-width: 600px)': {
+               minWidth: '100%',
+               margin: '0px 0px 0px 0px' // Set to 100% width for screens smaller than 600px
+             },
+         },
+         
+   Inputbox3: {
+     height: '80px',
+     minWidth: '640px',
+     borderRadius: '16px',
+     borderColor: '#fff',
+     boxShadow: '0 15px 30px 0 rgba(33, 97, 148, 0.15)',
+     padding: '16px 76px 16px 20px',
+  
+ marginTop: 32,
+ '@media (max-width: 600px)': {
+   minWidth: '100%',// Set to 100% width for screens smaller than 600px
+ },
+     backgroundColor: '#fff',
+     "& input::placeholder": {
+       fontFamily: 'Roboto',
+       fontSize: '16px',
+       color: '#bab9b9',
+       opacity: '1',
+ 
+   },
+ },
+       
+           formButton: {
+               background: "#216194",
+               borderRadius: "16px",
+               fontFamily: "'Roboto'",
+               fontStyle: "normal",
+               fontWeight: 400,
+               fontSize: "16px",
+               width: '128px',
+               height: '42px',
+               textAlign: "center",
+               color: "#FFFFFF",
+              marginTop: '32px',
+              textTransform: 'none'
+           },
+       
+           externalLoginButton: {
+               backgroundColor: '#FFFFFF',
+               borderRadius: '16px',              
+   boxShadow: "0px 15px 30px rgba(33, 97, 148, 0.1)",
+               width: '640px',
+               height: '80x',
+               textTransform: 'none',
+               color: '#216194',              
+   fontFamily: "'Roboto'",
+   fontStyle: "normal",
+   fontWeight: 700,
+   fontSize: "18px",
+       
+           },
+       
+           checkBoxControl: {
+               margin: '24px 0 0 0',
+           },
+       
+           checkBoxLabel: {
+               
+         fontFamily: "'Roboto'",
+         fontStyle: "normal",
+         fontWeight: 400,
+         fontSize: "16px",
+         color: "#BAB9B9",
+               '.MuiFormControlLabel-label': {
+                   fontSize: '16px'
+               },
+           },
+           tinyText: {
+               fontSize: '11px',
+               color: '#969696'
+           },
+           errorText: {
+               
+         fontFamily: "'Roboto'",
+         fontStyle: "normal",
+         fontWeight: 500,
+         fontSize: "14px",
+         alignItems: "center",
+         color: "#E58A83",
+         marginTop: 8,
+           },
+ 
+           Email:{
+             
+   background: "#FFFFFF",
+   marginTop: '64px',
+   boxShadow: "0px 15px 30px rgba(33, 97, 148, 0.1)",
+   borderRadius: "16px",
+   minWidth: '416px',
+   height: '80px',
+   '@media (max-width: 600px)': {
+     minWidth: '100%', // Set to 100% width for screens smaller than 600px
+   },
+           },
+ 
+ });
+
+ 
+ const classes = useStyles();
+ 
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -22,7 +241,6 @@ const SignupPage = () => {
   const [signUp_type] = useState('');
 
 
-    const classes = useStyles();
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value);
   };
@@ -47,61 +265,119 @@ const SignupPage = () => {
   {
       console.warn(first_name,last_name,email,dob,password)
   }
+  
+  const [ keepLoggedIn, setKeepLoggedIn ] = useState(false);
+  const handleChangeKeepLoggedIn = () => {
+    setKeepLoggedIn(!keepLoggedIn);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-  
-    const signupData = {
-        first_name,
-      last_name,
-      email,
-      dob,
-      password,
-      signUp_type:1,
-    };
-  
-    try {
-      const response = await fetch('http://52.66.13.189:8000/kindo/users/signup/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(signupData),
+    
+};
+
+const [ keepLoggedIn1, setKeepLoggedIn1 ] = useState(false);
+  const handleChangeKeepLoggedIn1 = () => {
+    setKeepLoggedIn1(!keepLoggedIn1);
+
+    
+};
+const handleSubmit = async (event) => {
+  event.preventDefault();
+
+  const signupData = {
+    first_name,
+    last_name,
+    email,
+    dob,
+    password,
+    signUp_type: 1,
+  };
+
+  try {
+    // Perform user signup
+    const signupResponse = await fetch('http://52.66.13.189:8000/kindo/users/signup/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(signupData),
+    });
+
+    if (signupResponse.ok) {
+      console.log('Signup successful');
+
+      // Parse signup response JSON
+      const responseData = await signupResponse.json();
+      const accessToken = responseData.access_token;
+
+      // Clear form input fields
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setDateOfBirth('');
+      setPassword('');
+
+      // Send confirmation email
+      const confirmEmailEndpoint = `http://52.66.13.189:8000/kindo/users/verify-email/?uid=MjY&token=bpzhct-7b08d2400e408db7209fe8b0276cfe8f`;
+      const confirmEmailResponse = await fetch(confirmEmailEndpoint, {
+        method: 'GET',
       });
-  
-      if (response.ok) {
-        console.log('Signup successful');
-        setFirstName('');
-        setLastName('');
-        setEmail('');
-        setDateOfBirth('');
-        setPassword('');
-  
-        // Send confirmation email
-        const confirmEmailEndpoint = `http://52.66.13.189:8000/kindo/users/verify-email/?uid=MjY&token=bpzhct-7b08d2400e408db7209fe8b0276cfe8f`;
-        const confirmEmailResponse = await fetch(confirmEmailEndpoint, {
-          method: 'GET',
-        });
-  
-        if (confirmEmailResponse.ok) {
-          console.log('Confirmation email sent');
-        } else {
-          console.log('Failed to send confirmation email');
-          // Handle the email sending error
-          // ...
-        }
+
+      if (confirmEmailResponse.ok) {
+        console.log('Confirmation email sent');
+        
+        // Fetch JWT access token
+    
+const accessTokenPayload = {
+  email,
+  password
+};
+
+const accessTokenResponse = await fetch('http://52.66.13.189:8000/kindo/users/access-token/', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(accessTokenPayload)
+});
+
+if (accessTokenResponse.ok) {
+  const accessTokenData = await accessTokenResponse.json();
+  const jwtAccessToken = accessTokenData.jwt_access_token;
+  console.log('JWT Access Token:', jwtAccessToken);
+} else {
+  console.log('Failed to fetch JWT access token');
+  // Handle access token fetching error
+  // ...
+}
       } else {
-        console.log('Signup failed');
-        // Handle the signup error
+        console.log('Failed to send confirmation email');
+        // Handle the email sending error
         // ...
       }
-    } catch (error) {
-      console.error('Error:', error);
-      // Handle any other errors
+    } else {
+      console.log('Signup failed');
+      // Handle the signup error
       // ...
     }
-  };
+  } catch (error) {
+    console.error('Error:', error);
+    // Handle any other errors
+    // ...
+  }
+};
+
+
   
+
+
+
+
+
+
+  const [ showPassword, setShowPassword ] = useState(false);
+  
+  const handleChangeShowPassword = () => {
+    setShowPassword(!showPassword);
+};
 
   return (
     <Container maxWidth="sm">
@@ -109,7 +385,42 @@ const SignupPage = () => {
         <Typography className={classes.titleText} align="center" gutterBottom>
         Begin your journey of health now!
         </Typography>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} justifyContent='center' style={{marginTop: 64}}>
+        <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            disableRipple={true}
+                                            checked={keepLoggedIn}
+                                            onChange={handleChangeKeepLoggedIn}
+                                            name='keep-logged-in-checkbox'
+                                            style={{
+                                                color: '#216194'
+                                            }}
+                                        />
+                                    }
+                                    label='Individual account'
+                                    classes={{label: classes.checkBoxLabel}}
+                                    className={classes.checkBoxControl}
+
+                                />
+                                 <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            disableRipple={true}
+                                            checked={keepLoggedIn1}
+                                            onChange={handleChangeKeepLoggedIn1}
+                                            name='keep-logged-in-checkbox'
+                                            style={{
+                                                color: '#216194'
+                                            }}
+                                        />
+                                    }
+                                    label='Business account '
+                                    classes={{label: classes.checkBoxLabel}}
+                                    className={classes.checkBoxControl}
+
+                                />
+                                
           
           <Grid item xs={12}>
             <TextField
@@ -211,19 +522,36 @@ placeholder='e.g. Wong'
               value={password}
               onChange={handlePasswordChange}
             />
+                                   <FormControlLabel
+                  control={
+                    <Checkbox
+                      disableRipple={true}
+                      checked={!showPassword}
+                      onChange={handleChangeShowPassword}
+                      name='show-password-checkbox'
+                   
+                      icon={<Visibility />} // Eye icon when password is hidden
+                      checkedIcon={<VisibilityOff />} // Eye icon when password is shown
+                    />
+                  }
+                  classes={{ label: classes.checkBoxLabel }}
+                  className={classes.checkBoxControl2}
+                />
           </Grid>
           <Grid item container justifyContent='center' xs={12}>
             <Button type="submit" variant="contained" className={classes.formButton}  onClick={signup}> 
               Signup
             </Button>
           </Grid>
-          <Grid item container justifyContent='center'>
-                    <Button className={classes.externalLoginButton} onClick={() => window.location.href = googleLoginUrl}>
+          
+          <Typography style={{marginTop: 42}}>Or</Typography>
+          <Grid item container  xs={12} style={{marginTop: 56.5}}>
+                    <Button  className={classes.externalLoginButton} onClick={() => window.location.href = googleLoginUrl}>
                     Sign up with Google
           </Button>
 
                     </Grid>
-                    <Grid item container justifyContent='center'>
+                    <Grid item container style={{marginTop: 32}} >
              
                     <Button className={classes.externalLoginButton} onClick={() => window.location.href = facebookLoginUrl}>
                     Sign up with Facebook
@@ -461,3 +789,85 @@ export default SignupPage;
 // };
 
 // export default SignupForm;
+
+
+
+
+// import React, { useState } from 'react';
+// import { Container, Grid, Typography } from '@material-ui/core';
+// import { makeStyles } from '@material-ui/core/styles';
+// import { LoginForm } from '../components/forms';
+// import Link from 'next/link';
+
+
+// const useStyles = makeStyles({
+//     mainDiv: {
+//         display: 'flex'
+//     },
+//     loginLeft: {
+//         background: '#fff',
+//         flex: 1,
+//         margin: '166px 0 197px 0'
+//     },
+//     loginRight: {
+//         flex: 1
+//     },
+//     noAccountText: {
+//         fontFamily: 'Roboto',
+//         fontSize: '16px',
+//         lineHeight: '1.25',
+//         color: '#969696',
+//         marginTop: '48px',
+//     },
+//     forgotPasswordLinkText: {
+//         fontFamily: 'Roboto',
+//         fontSize: '16px',
+//         marginTop: '8px',
+//         marginBottom: '48px',
+//         color: '#216194',
+//         fontWeight: '500'
+//     },
+//     switchAccountTypeText: {
+//         fontFamily: 'Roboto',
+//         fontSize: '14px',
+//         color: '#969696',
+//         textDecoration: 'underline'
+//     }
+
+
+// });
+// const LoginIndividual = () => {
+//     const classes = useStyles();
+    
+//     return (
+//         <div className={classes.mainDiv}>
+//             <Grid container direction='row'>
+//                 <Grid item container direction='column' alignContent='center' md={6}>
+//                     <div className={classes.loginLeft}>
+//                         <LoginForm />
+//                         <Grid item container direction='column' alignItems='center'>
+//                             <Typography className={classes.noAccountText}>
+//                                 Don't have an account? <Link href='#'>Sign up</Link>
+//                             </Typography>
+//                             <Typography className={classes.forgotPasswordLinkText}>
+//                                 <Link href='#'>Forgot password?</Link>
+//                             </Typography>
+//                             <Typography className={classes.switchAccountTypeText}>
+//                                 <Link href='#'>Switch to business account</Link>
+//                             </Typography>
+//                         </Grid>
+//                     </div>
+//                 </Grid>
+//                 <Grid item md={6}>
+//                     <div className={classes.loginRight}>
+//                     <h1>Insert image here</h1>
+
+//                     </div>
+//                 </Grid>
+//             </Grid>
+//         </div>
+        
+//     )
+// }
+
+// export default LoginIndividual;

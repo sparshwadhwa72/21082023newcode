@@ -19,6 +19,9 @@ const AddDrugOne = ({formMethods}) => {
     const drugUnits = ['mg', 'mcg', 'g', 'iu', 'N/A'];
     const drugTypeList = ['Prescribed drug', 'Supplement', 'Over the counter', 'Herbal', 'N/A'];
 
+    if (!formMethods) {return null}
+
+    else{
     return (
         <Grid container item direction='row'>
             <Grid container item direction='column'>
@@ -27,7 +30,7 @@ const AddDrugOne = ({formMethods}) => {
                         <AutocompleteDropdown
                             autocompleteOptions={drugList}
                             label={`Drug name*`}
-                            control={formMethods.control}
+                            control={formMethods !== undefined ? formMethods.control : null}
                             name='drugName'
                             rules={{required: true}}
                             placeholder={`(i.e. Panadol)`}
@@ -39,7 +42,7 @@ const AddDrugOne = ({formMethods}) => {
                                 placeholder={`(i.e. Capsule)`}
                                 name='drugForm'
                                 label='Form'
-                                control={formMethods.control}
+                                control={formMethods !== undefined ? formMethods.control : null}
                                 selectOptions={drugFormList}
                                 rules={{}}
                             />
@@ -49,7 +52,7 @@ const AddDrugOne = ({formMethods}) => {
                                 placeholder={`(i.e. Prescribed drug)`}
                                 name='drugType'
                                 label='Type'
-                                control={formMethods.control}
+                                control={formMethods !== undefined ? formMethods.control : null}
                                 selectOptions={drugTypeList}
                                 rules={{}}
                             />
@@ -63,7 +66,7 @@ const AddDrugOne = ({formMethods}) => {
                         <AutocompleteDropdown
                             autocompleteOptions={sourceList}
                             label={`Where is it from?`}
-                            control={formMethods.control}
+                            control={formMethods !== undefined ? formMethods.control : null}
                             name='drugSource'
                             rules={{}}
                             placeholder={`(i.e. Caritas Medical Centre)`}
@@ -71,7 +74,7 @@ const AddDrugOne = ({formMethods}) => {
                     </Grid>
                     <Grid item>
                         <TextareaInput
-                            control={formMethods.control}
+                            control={formMethods !== undefined ? formMethods.control : null}
                             name='specialInstructions'
                             label={`Special Instructions`}
                             rules={{}}
@@ -88,7 +91,7 @@ const AddDrugOne = ({formMethods}) => {
                     <TextDropdown
                         textPlaceholder={`(i.e. 100)`}
                         dropdownPlaceholder={`(unit)`}
-                        control={formMethods.control}
+                        control={formMethods !== undefined ? formMethods.control : null}
                         textName={`dosageStrength`}
                         dropdownName={`dosageUnit`}
                         label={`Dosage strength*`}
@@ -100,7 +103,7 @@ const AddDrugOne = ({formMethods}) => {
                 <Grid item container direction='row'>
                     <Grid item>
                         <TextInput
-                            control={formMethods.control}
+                            control={formMethods !== undefined ? formMethods.control : null}
                             name={`quantity`}
                             rules={{}}
                             label={`Quantity`}
@@ -111,7 +114,7 @@ const AddDrugOne = ({formMethods}) => {
                     </Grid>
                     <Grid item>
                         <DateInput
-                            control={formMethods.control}
+                            control={formMethods !== undefined ? formMethods.control : null}
                             name={`expiryDate`}
                             placeholder={`(i.e. 11/11/2021)`}
                             label={`Expiry date`}
@@ -122,7 +125,7 @@ const AddDrugOne = ({formMethods}) => {
             </Grid>
         </Grid>
     )
-
+    }
 
 }
 

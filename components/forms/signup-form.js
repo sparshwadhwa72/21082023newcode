@@ -28,7 +28,10 @@ const SignupForm = () => {
         setShowPassword(!showPassword);
     };
 
-
+    if (1==1){
+        return null
+    }
+    else{
     return (
         <Container>
             <Grid container direction='column' spacing={4} justifyContent='space-evenly'>
@@ -188,7 +191,7 @@ const SignupForm = () => {
         </Container>
 
     )
-
+    }
 
 }
 
